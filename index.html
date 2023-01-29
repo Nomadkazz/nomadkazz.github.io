@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Template Main CSS File -->
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js"></script>
+    <script>
+        function compute_krovlya(){
+            console.log("in compute_krovlya")
+            var input_porch = document.getElementById("porch").value
+            console.log(input_porch)
+            var output_krovlya = input_porch * 450
+            document.getElementById("output_krovlya").innerHTML = "Кровля = ("+input_porch+"*450) = " + output_krovlya.toString()
+            document.getElementById("krovlya").value = output_krovlya
+        }
+        function compute_fasad(){
+            console.log("in compute_fasad")
+            var krovlya = document.getElementById("krovlya").value
+            var num_floors = document.getElementById("floors").value
+            console.log(krovlya)
+            var output_fasad = Math.sqrt(krovlya).toFixed(2) * 4 * num_floors * 3
+            document.getElementById("output_fasad").innerHTML = "Фасад = ("+Math.sqrt(krovlya).toFixed(2)+"* 4 *"+num_floors+"* 3) = " + output_fasad.toString()
+        }
+        
+    </script>
+</head>
+<body>
+
+    <!-- Количество Подъездов: -->
+    <input type="number" class="" name="porch" id="porch" placeholder="Количество Подъездов" />
+    <button class="" onclick="compute_krovlya()">Вычислить кровлю</button>
+    <p id="output_krovlya" class="">Кровля  = </p>
+
+    <input type="number" class="" name="floors" id="floors" placeholder="Количество Этажей" />
+    <input type="number" class="" name="krovlya" id="krovlya" placeholder="Количество Кровли" />
+    <button class="" onclick="compute_fasad()">Вычислить фасад</button>
+    <p id="output_fasad" class="">Фасад = </p>
+
+    <!-- Template Main JS File -->
+</body>
+</html>
